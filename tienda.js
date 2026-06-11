@@ -4,7 +4,7 @@
    name y cofradia en cada producto.
    =========================== */
 
-const PRICE = 24.99;
+const PRICE = 18;
 
 const products = [
   { id:1,  name:'Equipo 1',  cofradia:'', primary:'#c62828', secondary:'#ffffff', kit:'solid'     },

@@ -18,7 +18,7 @@ const newsItems = [
   {
     tag: 'noticia', tagLabel: 'Preinscripción',
     headline: '⚠️ Preinscripción abierta hasta el 22 de junio',
-    desc: 'Rellena el formulario antes del 22 de junio y abona 50 € por Bizum para reservar tu plaza. ¡No te quedes fuera!',
+    desc: 'Rellena el formulario antes del 22 de junio y abona 60 € por Bizum para reservar tu plaza. ¡No te quedes fuera!',
     img: 'images/banner-inscripciones.jpg',
     gradient: 'linear-gradient(135deg, #080010 0%, #0c0018 100%)',
   },
