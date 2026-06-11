@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XV Maratón Cofrade Fútbol Sala</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-text">XV Maratón Cofrade<br><strong>Fútbol Sala</strong></span>
+        <img src="logo.png" alt="XV Maratón Cofrade Fútbol Sala" class="logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="equipos.html">Equipos</a></li>
+        <li><a href="resultados.html">Resultados</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="#patrocinadores">Patrocinadores</a></li>
+        <li><a href="registro.html" class="nav-cta">Inscribirse</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO IMAGE CAROUSEL ========== -->
+  <section id="noticias" class="hero-carousel">
+
+    <!-- Progress bar (auto-advance) -->
+    <div class="c-progress"><div class="c-progress-bar" id="cProgressBar"></div></div>
+
+    <!-- Brand overlay: always visible -->
+    <div class="c-brand">
+      <img src="logo.png" alt="XV Maratón Cofrade Fútbol Sala" class="c-brand-logo">
+      <div class="c-brand-text">
+        <span class="c-brand-name">XV Maratón Cofrade</span>
+        <span class="c-brand-sub">Fútbol Sala · 31 Jul – 1 Ago 2026</span>
+      </div>
+    </div>
+
+    <!-- Slides viewport -->
+    <div class="c-viewport">
+      <div class="c-track" id="cTrack">
+        <!-- slides rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Arrow navigation -->
+    <button class="c-arrow c-prev" id="cPrev" aria-label="Anterior">&#8249;</button>
+    <button class="c-arrow c-next" id="cNext" aria-label="Siguiente">&#8250;</button>
+
+    <!-- Bottom bar: dots + CTA -->
+    <div class="c-bottom">
+      <div class="c-dots" id="cDots"></div>
+      <a href="registro.html" class="c-cta-btn">Inscribir mi equipo &rarr;</a>
+    </div>
+
+    <!-- Scrolling ticker -->
+    <div class="ticker-bar">
+      <span class="ticker-label">ÚLTIMAS NOTICIAS</span>
+      <div class="ticker-track">
+        <span class="ticker-content" id="tickerContent"></span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== PATROCINADORES SCROLL ========== -->
+  <section id="patrocinadores" class="logos-band">
+    <div class="container logos-band-header">
+      <span class="section-label">Apoyan el evento</span>
+      <h2 class="logos-band-title">Patrocinadores Oficiales</h2>
+    </div>
+    <div class="logos-runway">
+      <div class="logos-track" id="mainLogosTrack"></div>
+    </div>
+  </section>
+
+  <!-- ========== COLABORADORES SCROLL ========== -->
+  <section id="colaboradores" class="logos-band logos-band-alt">
+    <div class="container logos-band-header">
+      <span class="section-label">Con la colaboración de</span>
+      <h2 class="logos-band-title">Colaboradores</h2>
+    </div>
+    <div class="logos-runway">
+      <div class="logos-track logos-track-fast" id="collabLogosTrack"></div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS TABLE ========== -->
+  <section id="resultados" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Actualizado en tiempo real</span>
+        <h2>Tabla de Clasificación</h2>
+      </div>
+      <div class="table-wrapper">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th title="Posición">#</th>
+              <th class="col-team">Equipo</th>
+              <th title="Partidos jugados">PJ</th>
+              <th title="Ganados">G</th>
+              <th title="Empates">E</th>
+              <th title="Perdidos">P</th>
+              <th title="Goles a favor">GF</th>
+              <th title="Goles en contra">GC</th>
+              <th title="Diferencia de goles">DG</th>
+              <th title="Puntos" class="col-pts">Pts</th>
+            </tr>
+          </thead>
+          <tbody id="standingsBody"></tbody>
+        </table>
+      </div>
+      <p class="table-note">G = Ganado · E = Empate · P = Perdido · DG = Diferencia de goles</p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Maratón Cofrade" class="footer-logo">
+        <span class="footer-name">XV Maratón Cofrade <strong class="green">Fútbol Sala</strong></span>
+        <p>El evento de fútbol sala más emocionante de la región.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Secciones</h4>
+        <a href="#noticias">Noticias</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#resultados">Resultados</a>
+        <a href="registro.html">Inscripción</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>📧 veracruxmontoro@gmail.com</p>
+        <p>📍 Polideportivo Municipal de Montoro (Córdoba)</p>
+      </div>
+      <div class="footer-orgs">
+        <h4>Organiza &amp; Colabora</h4>
+        <div class="footer-org-logos">
+          <img src="logos/organiza-02.png" alt="Cofradía de la Santa Vera Crux y Santiago Apóstol" class="footer-org-img" title="Cofradía de la Santa Vera Crux y Santiago Apóstol">
+          <img src="logos/organiza-03.png" alt="Excmo. Ayuntamiento de Montoro" class="footer-org-img" title="Excmo. Ayuntamiento de Montoro">
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 XV Maratón Cofrade Fútbol Sala · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+

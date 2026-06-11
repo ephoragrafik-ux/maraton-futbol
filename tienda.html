@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda · XV Maratón Cofrade Fútbol Sala</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-text">XV Maratón Cofrade<br><strong>Fútbol Sala</strong></span>
+        <img src="logo.png" alt="XV Maratón Cofrade Fútbol Sala" class="logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#noticias">Noticias</a></li>
+        <li><a href="equipos.html">Equipos</a></li>
+        <li><a href="resultados.html">Resultados</a></li>
+        <li><a href="index.html#patrocinadores">Patrocinadores</a></li>
+        <li><a href="registro.html" class="nav-cta">Inscribirse</a></li>
+      </ul>
+      <!-- CART BUTTON -->
+      <button class="cart-btn" id="cartBtn" aria-label="Carrito">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="shop-main">
+
+    <!-- PAGE HEADER -->
+    <div class="shop-header">
+      <span class="section-label">XV Maratón Cofrade Fútbol Sala · 2026</span>
+      <h1>Tienda Oficial</h1>
+      <p>Camisetas oficiales de los 12 equipos participantes</p>
+    </div>
+
+    <!-- SHOP GRID -->
+    <section class="shop-section">
+      <div class="container">
+        <div class="shop-grid" id="shopGrid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Tu carrito</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <!-- rendered by JS -->
+    </div>
+
+    <div class="cart-empty" id="cartEmpty">
+      <span>🛒</span>
+      <p>Tu carrito está vacío</p>
+    </div>
+
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span class="cart-total-price" id="cartTotalPrice">0,00 €</span>
+      </div>
+      <button class="btn-checkout" id="checkoutBtn">Finalizar pedido →</button>
+    </div>
+  </aside>
+
+  <!-- ===== CHECKOUT MODAL ===== -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="checkout-modal">
+      <button class="modal-close" id="checkoutClose">&times;</button>
+
+      <!-- FORM STATE -->
+      <div id="checkoutForm">
+        <h2 class="checkout-title">Finalizar pedido</h2>
+        <div class="checkout-summary" id="checkoutSummary"></div>
+
+        <form id="orderForm" novalidate>
+          <div class="co-field-group">
+            <div class="co-field">
+              <label for="coName">Nombre completo <span class="req">*</span></label>
+              <input id="coName" type="text" placeholder="Nombre y apellidos" required>
+            </div>
+            <div class="co-field">
+              <label for="coPhone">Teléfono <span class="req">*</span></label>
+              <input id="coPhone" type="tel" placeholder="+34 600 000 000" required>
+            </div>
+          </div>
+          <div class="co-field">
+            <label for="coEmail">Correo electrónico <span class="req">*</span></label>
+            <input id="coEmail" type="email" placeholder="correo@ejemplo.com" required>
+          </div>
+          <div class="co-field">
+            <label for="coAddress">Dirección de envío <span class="req">*</span></label>
+            <input id="coAddress" type="text" placeholder="Calle, número, ciudad, código postal" required>
+          </div>
+          <div class="co-field">
+            <label for="coNotes">Notas del pedido</label>
+            <textarea id="coNotes" placeholder="Instrucciones especiales, recogida en mano…"></textarea>
+          </div>
+          <div class="co-check">
+            <input id="coTerms" type="checkbox" required>
+            <label for="coTerms">Acepto las <a href="#" class="link-green">condiciones de compra</a> y la política de privacidad</label>
+          </div>
+          <button type="submit" class="btn-confirm">Confirmar pedido →</button>
+        </form>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div id="checkoutSuccess" class="checkout-success hidden">
+        <div class="success-circle">✓</div>
+        <h2>¡Pedido recibido!</h2>
+        <p>Hemos recibido tu pedido correctamente. Nos pondremos en contacto contigo en las próximas 24 horas para confirmar el pago y el envío.</p>
+        <button class="btn-back-shop" onclick="closeCheckout(); clearCart();">Seguir comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Maratón Cofrade" class="footer-logo">
+        <span class="footer-name">XV Maratón Cofrade <strong class="green">Fútbol Sala</strong></span>
+        <p>El evento de fútbol sala más emocionante de la región.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Secciones</h4>
+        <a href="index.html#noticias">Noticias</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="index.html#patrocinadores">Patrocinadores</a>
+        <a href="registro.html">Inscripción</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>📧 veracruxmontoro@gmail.com</p>
+                <p>📍 Polideportivo Municipal de Montoro (Córdoba)</p>
+        </div>
+      <div class="footer-orgs">
+        <h4>Organiza &amp; Colabora</h4>
+        <div class="footer-org-logos">
+          <img src="logos/organiza-02.png" alt="Cofradía de la Santa Vera Crux y Santiago Apóstol" class="footer-org-img">
+          <img src="logos/organiza-03.png" alt="Excmo. Ayuntamiento de Montoro" class="footer-org-img">
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 XV Maratón Cofrade Fútbol Sala · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="tienda.js"></script>
+</body>
+</html>
+
+
+
+

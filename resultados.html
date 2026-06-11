@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados · XV Maratón Cofrade Fútbol Sala</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="resultados.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-text">XV Maratón Cofrade<br><strong>Fútbol Sala</strong></span>
+        <img src="logo.png" alt="XV Maratón Cofrade Fútbol Sala" class="logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#noticias">Noticias</a></li>
+        <li><a href="equipos.html">Equipos</a></li>
+        <li><a href="resultados.html" class="active">Resultados</a></li>
+        <li><a href="index.html#patrocinadores">Patrocinadores</a></li>
+        <li><a href="registro.html" class="nav-cta">Inscribirse</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="results-main">
+
+    <!-- PAGE HEADER -->
+    <div class="results-header">
+      <span class="section-label">XV Maratón Cofrade Fútbol Sala · 2026</span>
+      <h1>Resultados del Torneo</h1>
+      <p>31 Jul – 1 Ago 2026 · Polideportivo Municipal de Montoro (Córdoba)</p>
+    </div>
+
+    <!-- PHASE NAVIGATION (sticky) -->
+    <div class="phase-nav" id="phaseNav">
+      <a href="#grupos"  class="phase-btn active" data-phase="grupos">⚽ Fase de Grupos</a>
+      <a href="#cuartos" class="phase-btn"         data-phase="cuartos">⚔️ Cuartos de Final</a>
+      <a href="#semis"   class="phase-btn"         data-phase="semis">🏅 Semifinales</a>
+      <a href="#final"   class="phase-btn"         data-phase="final">🏆 Final</a>
+    </div>
+
+    <!-- ===== FASE DE GRUPOS ===== -->
+    <section id="grupos" class="phase-section">
+      <div class="container">
+        <div class="phase-header">
+          <span class="phase-num">Fase 1</span>
+          <div>
+            <h2>Fase de Grupos</h2>
+            <p>4 grupos · 3 equipos por grupo · Los 2 primeros de cada grupo pasan a cuartos</p>
+          </div>
+        </div>
+
+        <div class="groups-wrapper" id="groupsWrapper">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CUARTOS DE FINAL ===== -->
+    <section id="cuartos" class="phase-section phase-alt">
+      <div class="container">
+        <div class="phase-header">
+          <span class="phase-num">Fase 2</span>
+          <div>
+            <h2>Cuartos de Final</h2>
+            <p>Los 8 clasificados disputan los cuartos · 1 Ago 2026</p>
+          </div>
+        </div>
+        <div class="knockout-grid" id="qfGrid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEMIFINALES ===== -->
+    <section id="semis" class="phase-section">
+      <div class="container">
+        <div class="phase-header">
+          <span class="phase-num">Fase 3</span>
+          <div>
+            <h2>Semifinales</h2>
+            <p>Los 4 vencedores de cuartos · 2 Ago 2026</p>
+          </div>
+        </div>
+        <div class="knockout-grid knockout-grid-2" id="sfGrid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL ===== -->
+    <section id="final" class="phase-section phase-alt">
+      <div class="container">
+        <div class="phase-header">
+          <span class="phase-num phase-num-gold">Final</span>
+          <div>
+            <h2>Gran Final</h2>
+            <p>El campeón del XV Maratón Cofrade Fútbol Sala · 2 Ago 2026</p>
+          </div>
+        </div>
+        <div id="finalGrid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Maratón Cofrade" class="footer-logo">
+        <span class="footer-name">XV Maratón Cofrade <strong class="green">Fútbol Sala</strong></span>
+        <p>El evento de fútbol sala más emocionante de la región.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Secciones</h4>
+        <a href="index.html#noticias">Noticias</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="index.html#patrocinadores">Patrocinadores</a>
+        <a href="registro.html">Inscripción</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p>📧 veracruxmontoro@gmail.com</p>
+                <p>📍 Polideportivo Municipal de Montoro (Córdoba)</p>
+        </div>
+      <div class="footer-orgs">
+        <h4>Organiza &amp; Colabora</h4>
+        <div class="footer-org-logos">
+          <img src="logos/organiza-02.png" alt="Cofradía de la Santa Vera Crux y Santiago Apóstol" class="footer-org-img">
+          <img src="logos/organiza-03.png" alt="Excmo. Ayuntamiento de Montoro" class="footer-org-img">
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 XV Maratón Cofrade Fútbol Sala · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="resultados.js"></script>
+</body>
+</html>
+
+
+
+
+
