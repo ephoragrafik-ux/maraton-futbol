@@ -333,11 +333,47 @@ document.getElementById('checkoutOverlay').addEventListener('click', function(e)
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCheckout(); });
 
-document.getElementById('orderForm').addEventListener('submit', function(e) {
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   if (!this.checkValidity()) { this.reportValidity(); return; }
-  document.getElementById('checkoutForm').classList.add('hidden');
-  document.getElementById('checkoutSuccess').classList.remove('hidden');
+
+  const total    = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const pedido   = cart.map(i =>
+    `${i.name} · Talla ${i.size} × ${i.qty} = ${(i.price * i.qty).toFixed(2)} €`
+  ).join('\n');
+
+  const btn = this.querySelector('.btn-confirm');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/mykadreg', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        nombre:    document.getElementById('coName').value,
+        telefono:  document.getElementById('coPhone').value,
+        email:     document.getElementById('coEmail').value,
+        direccion: document.getElementById('coAddress').value,
+        notas:     document.getElementById('coNotes').value,
+        pedido,
+        total:     total.toFixed(2) + ' €',
+      }),
+    });
+
+    if (res.ok) {
+      document.getElementById('successTotal').textContent =
+        total.toFixed(2).replace('.', ',') + ' €';
+      document.getElementById('checkoutForm').classList.add('hidden');
+      document.getElementById('checkoutSuccess').classList.remove('hidden');
+    } else {
+      btn.textContent = 'Error al enviar. Inténtalo de nuevo.';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Error de conexión. Inténtalo de nuevo.';
+    btn.disabled = false;
+  }
 });
 
 /* ===========================

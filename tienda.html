@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda · XV Maratón Cofrade Fútbol Sala</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="tienda.css">
 </head>
@@ -123,7 +124,24 @@
       <div id="checkoutSuccess" class="checkout-success hidden">
         <div class="success-circle">✓</div>
         <h2>¡Pedido recibido!</h2>
-        <p>Hemos recibido tu pedido correctamente. Nos pondremos en contacto contigo en las próximas 24 horas para confirmar el pago y el envío.</p>
+        <p>Para confirmar tu pedido, envía <strong id="successTotal"></strong> por Bizum a uno de estos contactos:</p>
+        <div class="bizum-box">
+          <div class="bizum-icon">📱</div>
+          <div class="bizum-info">
+            <div class="bizum-contacts">
+              <div class="bizum-contact">
+                <span class="bizum-contact-name">Miguel Copado</span>
+                <span class="bizum-number">606 62 95 85</span>
+              </div>
+              <div class="bizum-contact">
+                <span class="bizum-contact-name">Ángela Afán</span>
+                <span class="bizum-number">646 28 27 64</span>
+              </div>
+            </div>
+            <p class="bizum-concept">Concepto: <strong>XVMaraton + tu nombre</strong></p>
+            <p class="bizum-note">⚠️ Recibirás confirmación por email una vez verificado el pago.</p>
+          </div>
+        </div>
         <button class="btn-back-shop" onclick="closeCheckout(); clearCart();">Seguir comprando</button>
       </div>
     </div>

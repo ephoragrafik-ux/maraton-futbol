@@ -162,7 +162,7 @@ function renderGroups() {
           <span class="match-team">${homeName}</span>
           <div class="match-center">
             ${scoreHTML}
-            <span class="match-time-label">${m.date} · ${m.time}</span>
+            <span class="match-time-label">${m.date}</span>
           </div>
           <span class="match-team match-team-away">${awayName}</span>
         </div>`;
@@ -235,7 +235,7 @@ function koCard(match, isFinal = false) {
           ${match.awaySub ? `<span class="ko-team-sub">${match.awaySub}</span>` : ''}
         </div>
       </div>
-      <div class="ko-footer">📅 ${match.date} &nbsp;·&nbsp; ⏰ ${match.time}</div>
+      <div class="ko-footer">📅 ${match.date}</div>
       ${trophyBlock}
     </div>`;
 }
