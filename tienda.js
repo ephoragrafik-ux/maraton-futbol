@@ -347,9 +347,10 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://formspree.io/f/mykadreg', {
+    await fetch('https://script.google.com/macros/s/AKfycbyVNWscTB2dOTmWVs6rFjqTps1U5CLI_BqOq6lEbIN6xEbaCxcx4szUBLJmmGF7mqK2-w/exec', {
       method:  'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         nombre:    document.getElementById('coName').value,
         telefono:  document.getElementById('coPhone').value,
@@ -361,15 +362,10 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
       }),
     });
 
-    if (res.ok) {
-      document.getElementById('successTotal').textContent =
-        total.toFixed(2).replace('.', ',') + ' €';
-      document.getElementById('checkoutForm').classList.add('hidden');
-      document.getElementById('checkoutSuccess').classList.remove('hidden');
-    } else {
-      btn.textContent = 'Error al enviar. Inténtalo de nuevo.';
-      btn.disabled = false;
-    }
+    document.getElementById('successTotal').textContent =
+      total.toFixed(2).replace('.', ',') + ' €';
+    document.getElementById('checkoutForm').classList.add('hidden');
+    document.getElementById('checkoutSuccess').classList.remove('hidden');
   } catch {
     btn.textContent = 'Error de conexión. Inténtalo de nuevo.';
     btn.disabled = false;
