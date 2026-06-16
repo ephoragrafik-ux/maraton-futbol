@@ -59,11 +59,15 @@ const mainSponsors = [
   { name:'Aceites Rosan',         img:'logos/aceitesrosan-01.png'    },
   { name:'Ana Calleja',           img:'logos/anacalleja-01.png'      },
   { name:'Aranda',                img:'logos/aranda-01.png'          },
+  { name:'Arroyo',                img:'logos/ARROYO-01.png'          },
   { name:'El Montoreño',          img:'logos/elmontoreño-01.png'     },
+  { name:'Muntur',                img:'logos/muntur-01.png'          },
   { name:'Navas',                 img:'logos/navas-01.png'           },
   { name:'Neumáticos Leiva',      img:'logos/neumaticosleiva-01.png' },
   { name:'Óptica Millenium',      img:'logos/opticamillenium-01.png' },
+  { name:'Puente Nuevo',          img:'logos/puente nuevo-01.png'    },
   { name:'Super Juguete',         img:'logos/superjuguete-01.png'    },
+  { name:'Talleres Palma',        img:'logos/tallerespalma-01.png'   },
   { name:'Tu Batería',            img:'logos/tubateria-01.png'       },
 ];
 
