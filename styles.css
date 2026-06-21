@@ -480,7 +480,7 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   gap: 1.5rem;
   width: max-content;
-  animation: scrollBand 200s linear infinite;
+  animation: scrollBand 300s linear infinite;
 }
 
 .logos-track-fast {

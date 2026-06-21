@@ -7,18 +7,7 @@
 const PRICE = 18;
 
 const products = [
-  { id:1,  name:'Equipo 1',  cofradia:'', primary:'#c62828', secondary:'#ffffff', kit:'solid'     },
-  { id:2,  name:'Equipo 2',  cofradia:'', primary:'#1565c0', secondary:'#ffffff', kit:'stripes_v' },
-  { id:3,  name:'Equipo C', cofradia:'Por confirmar', primary:'#2e7d32', secondary:'#000000', kit:'hoops'     },
-  { id:4,  name:'Equipo D', cofradia:'Por confirmar', primary:'#e65100', secondary:'#000000', kit:'diagonal'  },
-  { id:5,  name:'Equipo E', cofradia:'Por confirmar', primary:'#6a1b9a', secondary:'#ffffff', kit:'solid'     },
-  { id:6,  name:'Equipo F', cofradia:'Por confirmar', primary:'#006064', secondary:'#ffffff', kit:'stripes_v' },
-  { id:7,  name:'Equipo G', cofradia:'Por confirmar', primary:'#f57f17', secondary:'#000000', kit:'hoops'     },
-  { id:8,  name:'Equipo H', cofradia:'Por confirmar', primary:'#1a237e', secondary:'#e53935', kit:'diagonal'  },
-  { id:9,  name:'Equipo I', cofradia:'Por confirmar', primary:'#880e4f', secondary:'#ffffff', kit:'halves'    },
-  { id:10, name:'Equipo J', cofradia:'Por confirmar', primary:'#1b5e20', secondary:'#ffeb3b', kit:'halves'    },
-  { id:11, name:'Equipo K', cofradia:'Por confirmar', primary:'#212121', secondary:'#ffffff', kit:'solid'     },
-  { id:12, name:'Equipo L', cofradia:'Por confirmar', primary:'#4a148c', secondary:'#ffd600', kit:'diagonal'  },
+  { id:1, name:'HUMILDAD', cofradia:'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad en su Presentación Ante Pilato y Ntra. Madre Y Sra. de Consolación y Esperanza', primary:'#800020', secondary:'#ffffff', kit:'solid', kitImgA:'kits/HUMILDAD-A.png', kitImgB:'kits/HUMILDAD-B.png' },
 ];
 
 const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];

@@ -3,7 +3,7 @@
    =========================== */
 
 const teams = [
-  { id: 1,  group: null, slot: null, name: 'Equipo 1',  cofradia: '', primary: '#c62828', secondary: '#ffffff', kit: 'solid',     pending: true },
+  { id: 1,  group: null, slot: null, name: 'HUMILDAD', cofradia: 'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad en su Presentación Ante Pilato y Ntra. Madre Y Sra. de Consolación y Esperanza', primary: '#800020', secondary: '#ffffff', kit: 'solid', shieldImg: 'kits/humildad-escudo-01.png', kitImgA: 'kits/HUMILDAD-A.png', kitImgB: 'kits/HUMILDAD-B.png', pending: false },
   { id: 2,  group: null, slot: null, name: 'Equipo 2',  cofradia: '', primary: '#1565c0', secondary: '#ffffff', kit: 'stripes_v', pending: true },
   { id: 3,  group: null, slot: null, name: 'Equipo 3',  cofradia: '', primary: '#2e7d32', secondary: '#000000', kit: 'hoops',     pending: true },
   { id: 4,  group: null, slot: null, name: 'Equipo 4',  cofradia: '', primary: '#e65100', secondary: '#000000', kit: 'diagonal',  pending: true },
@@ -157,7 +157,7 @@ function buildCard(team) {
 
   const buyBtn = isPending
     ? `<button class="btn-buy-kit" disabled style="opacity:0.4;cursor:default">Plaza disponible</button>`
-    : `<button class="btn-buy-kit" onclick="openModal(${team.id})">🛒 Comprar camiseta</button>`;
+    : `<a href="tienda.html" class="btn-buy-kit">🛒 Comprar camiseta</a>`;
 
   return `
     <div class="team-card${isPending ? ' pending' : ''}${hasRealKit ? ' has-real-kit' : ''}">

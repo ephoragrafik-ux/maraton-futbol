@@ -57,10 +57,12 @@ const matches = [];
 
 const mainSponsors = [
   { name:'Aceites Rosan',         img:'logos/aceitesrosan-01.png'    },
+  { name:'Alba',                  img:'logos/alba-01.png'            },
   { name:'Ana Calleja',           img:'logos/anacalleja-01.png'      },
   { name:'Aranda',                img:'logos/aranda-01.png'          },
   { name:'Arroyo',                img:'logos/ARROYO-01.png'          },
   { name:'El Montoreño',          img:'logos/elmontoreño-01.png'     },
+  { name:'Marcos',                img:'logos/marcos-01.png'          },
   { name:'Muntur',                img:'logos/muntur-01.png'          },
   { name:'Navas',                 img:'logos/navas-01.png'           },
   { name:'Neumáticos Leiva',      img:'logos/neumaticosleiva-01.png' },
@@ -72,8 +74,9 @@ const mainSponsors = [
 ];
 
 const collabSponsors = [
-  { name:'Cofradía Vera Crux', img:'logos/organiza-02.png' },
-  { name:'Ayto. Montoro',      img:'logos/organiza-03.png' },
+  { name:'Cofradía Vera Crux', img:'logos/organiza-02.png'  },
+  { name:'Ayto. Montoro',      img:'logos/organiza-03.png'  },
+  { name:'Humildad',           img:'logos/humildad-01.png'  },
 ];
 
 /* ===========================
