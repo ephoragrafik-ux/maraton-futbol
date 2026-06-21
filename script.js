@@ -22,6 +22,13 @@ const newsItems = [
     img: 'images/banner-inscripciones.jpg',
     gradient: 'linear-gradient(135deg, #080010 0%, #0c0018 100%)',
   },
+  {
+    tag: 'noticia', tagLabel: 'Nuevo Equipo Inscrito',
+    headline: '¡La Humildad se une al XV Maratón Cofrade!',
+    desc: 'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad ya es oficial. ¡Bienvenidos al torneo!',
+    img: 'images/banner-humildad.jpg',
+    gradient: 'linear-gradient(135deg, #3b0010 0%, #600020 100%)',
+  },
 ];
 
 const tickerItems = [
