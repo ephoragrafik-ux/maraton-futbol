@@ -7,7 +7,8 @@
 const PRICE = 18;
 
 const products = [
-  { id:1, name:'HUMILDAD', cofradia:'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad en su Presentación Ante Pilato y Ntra. Madre Y Sra. de Consolación y Esperanza', primary:'#800020', secondary:'#ffffff', kit:'solid', kitImgA:'kits/HUMILDAD-A.png', kitImgB:'kits/HUMILDAD-B.png' },
+  { id:1, name:'HUMILDAD',    cofradia:'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad en su Presentación Ante Pilato y Ntra. Madre Y Sra. de Consolación y Esperanza', primary:'#800020', secondary:'#ffffff', kit:'solid', kitImgA:'kits/HUMILDAD-A.png',    kitImgB:'kits/HUMILDAD-B.png'    },
+  { id:2, name:'PADRE JESÚS', cofradia:'Hdad. de Ntro. Padre Jesús',                                                                                                              primary:'#6a1b9a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/PADRE-JESUS-A.png', kitImgB:'kits/PADRE-JESUS-B.png' },
 ];
 
 const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
@@ -331,34 +332,27 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
     `${i.name} · Talla ${i.size} × ${i.qty} = ${(i.price * i.qty).toFixed(2)} €`
   ).join('\n');
 
-  const btn = this.querySelector('.btn-confirm');
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
+  const payload = JSON.stringify({
+    nombre:    document.getElementById('coName').value,
+    telefono:  document.getElementById('coPhone').value,
+    email:     document.getElementById('coEmail').value,
+    direccion: document.getElementById('coAddress').value,
+    notas:     document.getElementById('coNotes').value,
+    pedido,
+    total:     total.toFixed(2) + ' €',
+  });
 
-  try {
-    await fetch('https://script.google.com/macros/s/AKfycbyVNWscTB2dOTmWVs6rFjqTps1U5CLI_BqOq6lEbIN6xEbaCxcx4szUBLJmmGF7mqK2-w/exec', {
-      method:  'POST',
-      mode:    'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({
-        nombre:    document.getElementById('coName').value,
-        telefono:  document.getElementById('coPhone').value,
-        email:     document.getElementById('coEmail').value,
-        direccion: document.getElementById('coAddress').value,
-        notas:     document.getElementById('coNotes').value,
-        pedido,
-        total:     total.toFixed(2) + ' €',
-      }),
-    });
+  fetch('https://script.google.com/macros/s/AKfycbyVNWscTB2dOTmWVs6rFjqTps1U5CLI_BqOq6lEbIN6xEbaCxcx4szUBLJmmGF7mqK2-w/exec', {
+    method:  'POST',
+    mode:    'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body:    payload,
+  }).catch(() => {});
 
-    document.getElementById('successTotal').textContent =
-      total.toFixed(2).replace('.', ',') + ' €';
-    document.getElementById('checkoutForm').classList.add('hidden');
-    document.getElementById('checkoutSuccess').classList.remove('hidden');
-  } catch {
-    btn.textContent = 'Error de conexión. Inténtalo de nuevo.';
-    btn.disabled = false;
-  }
+  document.getElementById('successTotal').textContent =
+    total.toFixed(2).replace('.', ',') + ' €';
+  document.getElementById('checkoutForm').classList.add('hidden');
+  document.getElementById('checkoutSuccess').classList.remove('hidden');
 });
 
 /* ===========================
