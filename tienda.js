@@ -8,7 +8,8 @@ const PRICE = 18;
 
 const products = [
   { id:1, name:'HUMILDAD',    cofradia:'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad en su Presentación Ante Pilato y Ntra. Madre Y Sra. de Consolación y Esperanza', primary:'#800020', secondary:'#ffffff', kit:'solid', kitImgA:'kits/HUMILDAD-A.png',    kitImgB:'kits/HUMILDAD-B.png'    },
-  { id:2, name:'PADRE JESÚS', cofradia:'Hdad. de Ntro. Padre Jesús',                                                                                                              primary:'#6a1b9a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/PADRE-JESUS-A.png', kitImgB:'kits/PADRE-JESUS-B.png' },
+  { id:2, name:'PADRE JESÚS', cofradia:'Hdad. de Ntro. Padre Jesús',              primary:'#6a1b9a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/PADRE-JESUS-A.png',  kitImgB:'kits/PADRE-JESUS-B.png'  },
+  { id:3, name:'RESUCITADO',  cofradia:'Cofradía del Santísimo Cristo Resucitado', primary:'#c62828', secondary:'#ffffff', kit:'solid', kitImgA:'kits/RESUCITADO-A.png',   kitImgB:'kits/RESUCITADO-B.png'   },
 ];
 
 const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
