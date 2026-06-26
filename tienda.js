@@ -11,7 +11,8 @@ const products = [
   { id:2, name:'PADRE JESÚS', cofradia:'Hdad. de Ntro. Padre Jesús',              primary:'#6a1b9a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/PADRE-JESUS-A.png',  kitImgB:'kits/PADRE-JESUS-B.png'  },
   { id:3, name:'RESUCITADO',         cofradia:'Cofradía del Santísimo Cristo Resucitado',          primary:'#c62828', secondary:'#ffffff', kit:'solid', kitImgA:'kits/RESUCITADO-A.png',  kitImgB:'kits/RESUCITADO-B.png'  },
   { id:4, name:'GRUPO JOVEN VERA CRUX', cofradia:'Cofradía de la Santa Vera Crux y Santiago Apóstol', primary:'#B5DCCA', secondary:'#000000', kit:'solid', kitImgA:'kits/GRUPO-JOVEN-A.png',  kitImgB:'kits/GRUPO-JOVEN-B.png'  },
-  { id:5, name:'JESÚS CAÍDO',          cofradia:'Agrupación Musical Jesús Caído',                     primary:'#0d1b4b', secondary:'#ffffff', kit:'solid', kitImgA:'kits/JESUS-CAIDO-A.png', kitImgB:'kits/JESUS-CAIDO-B.png' },
+  { id:5, name:'JESÚS CAÍDO',   cofradia:'Agrupación Musical Jesús Caído',                                              primary:'#0d1b4b', secondary:'#ffffff', kit:'solid', kitImgA:'kits/JESUS-CAIDO-A.png',    kitImgB:'kits/JESUS-CAIDO-B.png'    },
+  { id:6, name:'SANTO ENTIERRO', cofradia:'Cofradía Sacramental del Santo Sepulcro y Ntra. Sra. de la Soledad', primary:'#1a1a1a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/SANTO-ENTIERRO-A.png', kitImgB:'kits/SANTO-ENTIERRO-B.png' },
 ];
 
 const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
