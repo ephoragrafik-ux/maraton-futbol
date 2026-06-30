@@ -14,7 +14,8 @@ const products = [
   { id:5, name:'JESÚS CAÍDO',   cofradia:'Agrupación Musical Jesús Caído',                                              primary:'#0d1b4b', secondary:'#ffffff', kit:'solid', kitImgA:'kits/JESUS-CAIDO-A.png',    kitImgB:'kits/JESUS-CAIDO-B.png'    },
   { id:6, name:'SANTO ENTIERRO', cofradia:'Cofradía Sacramental del Santo Sepulcro y Ntra. Sra. de la Soledad', primary:'#1a1a1a', secondary:'#ffffff', kit:'solid', kitImgA:'kits/SANTO-ENTIERRO-A.png', kitImgB:'kits/SANTO-ENTIERRO-B.png' },
   { id:7, name:'IMPERIO ROMANO', cofradia:'Imperio Romano de Montoro',                                          primary:'#0000FD', secondary:'#ffffff', kit:'solid', kitImgA:'kits/ROMANOS-A.png',       kitImgB:'kits/ROMANOS-B.png'       },
-  { id:8, name:'VERA CRUX',     cofradia:'Cofradía de la Santa Vera Crux y Santiago Apóstol',                  primary:'#174C27', secondary:'#ffffff', kit:'solid', kitImgA:'kits/VERA-CRUX-A.png',     kitImgB:'kits/VERA-CRUX-B.png'     },
+  { id:8, name:'VERA CRUX',              cofradia:'Cofradía de la Santa Vera Crux y Santiago Apóstol',                                                                                                                                                                                                                      primary:'#174C27', secondary:'#ffffff', kit:'solid', kitImgA:'kits/VERA-CRUX-A.png',    kitImgB:'kits/VERA-CRUX-B.png'    },
+  { id:9, name:'COSTALERAS AMOR Y PAZ', cofradia:'Cofradía de la Entrada Triunfal de Jesús en Jerusalén y María Santísima del Amor y la Paz Madre protectora de la Infancia con los abuelos San Joaquín y Santa Ana y muy antigua y Piadosa Hermandad de Ntro. Padre Jesús del Calvario', primary:'#FB3D8B', secondary:'#ffffff', kit:'solid', kitImgA:'kits/BORRIQUITA-A.png', kitImgB:'kits/BORRIQUITA-B.png' },
 ];
 
 const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
