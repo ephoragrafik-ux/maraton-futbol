@@ -14,7 +14,7 @@ const teams = [
   { id: 9,  group: null, slot: null, name: 'COSTALERAS AMOR Y PAZ', cofradia: 'Cofradía de la Entrada Triunfal de Jesús en Jerusalén y María Santísima del Amor y la Paz Madre protectora de la Infancia con los abuelos San Joaquín y Santa Ana y muy antigua y Piadosa Hermandad de Ntro. Padre Jesús del Calvario', primary: '#FB3D8B', secondary: '#ffffff', kit: 'solid', shieldImg: 'kits/escudo-borriquita.png', kitImgA: 'kits/BORRIQUITA-A.png', kitImgB: 'kits/BORRIQUITA-B.png', pending: false },
   { id: 10, group: null, slot: null, name: 'FLAGELACIÓN', cofradia: 'Hermandad del Santísimo Cristo de la Flagelación y Ntra. Sra. del Rosario en sus Misterios Dolorosos', primary: '#6F1749', secondary: '#ffffff', kit: 'solid', shieldImg: 'kits/escudo-flagelacion.png', kitImgA: 'kits/FLAGELACION-A.png', kitImgB: 'kits/FLAGELACION-B.png', pending: false },
   { id: 11, group: null, slot: null, name: 'VIRGEN DE LA CABEZA', cofradia: 'Cofradía de Nuestra Señora de la Cabeza de Montoro', primary: '#8AC7E4', secondary: '#ffffff', kit: 'solid', shieldImg: 'kits/escudo-cabeza.png', kitImgA: 'kits/CABEZA-A.png', kitImgB: 'kits/CABEZA-B.png', pending: false },
-  { id: 12, group: null, slot: null, name: 'Equipo 12', cofradia: '', primary: '#4a148c', secondary: '#ffd600', kit: 'diagonal',  pending: true },
+  { id: 12, group: null, slot: null, name: 'LOS ESTUDIANTES', cofradia: 'Cofradía del Santísimo Cristo de la Misericordia y Ntra. Sra. de las Angustias', primary: '#D2CC98', secondary: '#000000', kit: 'solid', shieldImg: 'kits/escudo-misericordia.png', kitImgA: 'kits/ESTUDIANTES-A.png', kitImgB: 'kits/ESTUDIANTES-B.png', pending: false },
 ];
 
 /* ===========================
