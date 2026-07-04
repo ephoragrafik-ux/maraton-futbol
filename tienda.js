@@ -21,7 +21,7 @@ const products = [
   { id:12, name:'LOS ESTUDIANTES',    cofradia:'Cofradía del Santísimo Cristo de la Misericordia y Ntra. Sra. de las Angustias',                               primary:'#D2CC98', secondary:'#000000', kit:'solid', kitImgA:'kits/ESTUDIANTES-A.png',  kitImgB:'kits/ESTUDIANTES-B.png'  },
 ];
 
-const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
+const SIZES = ['2A', '4A', '6A', '8A', '10A', '12A', '14A', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
 
 /* ===========================
    CART STATE (persisted)
