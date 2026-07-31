@@ -18,7 +18,6 @@
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Menú">&#9776;</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#noticias">Noticias</a></li>
         <li><a href="equipos.html">Equipos</a></li>
         <li><a href="resultados.html">Resultados</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -27,70 +26,6 @@
       </ul>
     </div>
   </nav>
-
-  <!-- ========== HERO IMAGE CAROUSEL ========== -->
-  <section id="noticias" class="hero-carousel">
-
-    <!-- Progress bar (auto-advance) -->
-    <div class="c-progress"><div class="c-progress-bar" id="cProgressBar"></div></div>
-
-    <!-- Brand overlay: always visible -->
-    <div class="c-brand">
-      <img src="logo.png" alt="XV Maratón Cofrade Fútbol Sala" class="c-brand-logo">
-      <div class="c-brand-text">
-        <span class="c-brand-name">XV Maratón Cofrade</span>
-        <span class="c-brand-sub">Fútbol Sala · 31 Jul – 1 Ago 2026</span>
-      </div>
-    </div>
-
-    <!-- Slides viewport -->
-    <div class="c-viewport">
-      <div class="c-track" id="cTrack">
-        <!-- slides rendered by JS -->
-      </div>
-    </div>
-
-    <!-- Arrow navigation -->
-    <button class="c-arrow c-prev" id="cPrev" aria-label="Anterior">&#8249;</button>
-    <button class="c-arrow c-next" id="cNext" aria-label="Siguiente">&#8250;</button>
-
-    <!-- Bottom bar: dots + CTA -->
-    <div class="c-bottom">
-      <div class="c-dots" id="cDots"></div>
-      <a href="registro.html" class="c-cta-btn">Inscribir mi equipo &rarr;</a>
-    </div>
-
-    <!-- Scrolling ticker -->
-    <div class="ticker-bar">
-      <span class="ticker-label">ÚLTIMAS NOTICIAS</span>
-      <div class="ticker-track">
-        <span class="ticker-content" id="tickerContent"></span>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ========== PATROCINADORES SCROLL ========== -->
-  <section id="patrocinadores" class="logos-band">
-    <div class="container logos-band-header">
-      <span class="section-label">Apoyan el evento</span>
-      <h2 class="logos-band-title">Patrocinadores Oficiales</h2>
-    </div>
-    <div class="logos-runway">
-      <div class="logos-track" id="mainLogosTrack"></div>
-    </div>
-  </section>
-
-  <!-- ========== COLABORADORES SCROLL ========== -->
-  <section id="colaboradores" class="logos-band logos-band-alt">
-    <div class="container logos-band-header">
-      <span class="section-label">Con la colaboración de</span>
-      <h2 class="logos-band-title">Colaboradores</h2>
-    </div>
-    <div class="logos-runway">
-      <div class="logos-track logos-track-fast" id="collabLogosTrack"></div>
-    </div>
-  </section>
 
   <!-- ========== RESULTS TABLE ========== -->
   <section id="resultados" class="section">
@@ -122,6 +57,28 @@
     </div>
   </section>
 
+  <!-- ========== PATROCINADORES SCROLL ========== -->
+  <section id="patrocinadores" class="logos-band">
+    <div class="container logos-band-header">
+      <span class="section-label">Apoyan el evento</span>
+      <h2 class="logos-band-title">Patrocinadores Oficiales</h2>
+    </div>
+    <div class="logos-runway">
+      <div class="logos-track" id="mainLogosTrack"></div>
+    </div>
+  </section>
+
+  <!-- ========== COLABORADORES SCROLL ========== -->
+  <section id="colaboradores" class="logos-band logos-band-alt">
+    <div class="container logos-band-header">
+      <span class="section-label">Con la colaboración de</span>
+      <h2 class="logos-band-title">Colaboradores</h2>
+    </div>
+    <div class="logos-runway">
+      <div class="logos-track logos-track-fast" id="collabLogosTrack"></div>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container footer-inner">
@@ -132,9 +89,8 @@
       </div>
       <div class="footer-links">
         <h4>Secciones</h4>
-        <a href="#noticias">Noticias</a>
-        <a href="#patrocinadores">Patrocinadores</a>
         <a href="#resultados">Resultados</a>
+        <a href="#patrocinadores">Patrocinadores</a>
         <a href="registro.html">Inscripción</a>
       </div>
       <div class="footer-contact">
@@ -155,6 +111,7 @@
     </div>
   </footer>
 
+  <script src="matches-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

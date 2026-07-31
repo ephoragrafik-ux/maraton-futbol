@@ -1,66 +1,8 @@
 ﻿/* ===========================
    DATA
+   Los equipos y los partidos (groupTeams / groupMatches) viven en
+   matches-data.js, compartido con la página de Resultados.
    =========================== */
-
-/* Cada slide puede tener:
-   - img: 'images/nombre.jpg'   ← añadir cuando haya imagen real
-   - gradient: fondo CSS de reserva (siempre activo; imagen encima si se especifica)
-   Para añadir imagen real: img: 'images/noticia1.jpg'
-*/
-const newsItems = [
-  {
-    tag: 'noticia', tagLabel: 'Evento Oficial',
-    headline: 'XV Maratón Cofrade de Fútbol Sala · Montoro 2026',
-    desc: '📅 31 de julio y 1 de agosto de 2026  ·  📍 Polideportivo Municipal de Montoro (Córdoba)',
-    img: 'images/banner-maraton.jpg',
-    gradient: 'linear-gradient(135deg, #020508 0%, #040a10 100%)',
-  },
-  {
-    tag: 'noticia', tagLabel: 'Preinscripción',
-    headline: '⚠️ Preinscripción abierta hasta el 22 de junio',
-    desc: 'Rellena el formulario antes del 22 de junio y abona 60 € por Bizum para reservar tu plaza. ¡No te quedes fuera!',
-    img: 'images/banner-inscripciones.jpg',
-    gradient: 'linear-gradient(135deg, #080010 0%, #0c0018 100%)',
-  },
-  {
-    tag: 'noticia', tagLabel: 'Nuevo Equipo Inscrito',
-    headline: '¡La Humildad se une al XV Maratón Cofrade!',
-    desc: 'Hdad. y Cofradía de Nazarenos del S Cristo de la Humildad ya es oficial. ¡Bienvenidos al torneo!',
-    img: 'images/banner-humildad.jpg',
-    gradient: 'linear-gradient(135deg, #3b0010 0%, #600020 100%)',
-  },
-];
-
-const tickerItems = [
-  '⚽ Preinscripción abierta hasta el 22 de junio — ¡Apunta tu equipo!',
-  '📍 Polideportivo Municipal de Montoro (Córdoba) · 31 Jul – 1 Ago 2026',
-  '🏛️ Organiza: Cofradía de la Santa Vera Crux y Santiago Apóstol',
-  '🤝 Colabora: Excmo. Ayuntamiento de Montoro',
-  '🎯 72 horas de fútbol sala · 12 equipos · 4 grupos · 1 campeón',
-];
-
-const teamColors = [
-  '#e53935','#1e88e5','#43a047','#fb8c00',
-  '#8e24aa','#00acc1','#f4511e','#6d4c41',
-  '#00897b','#c0ca33','#5e35b1','#e91e63'
-];
-
-const teams = [
-  { id:1,  name:'Equipo 1',  short:'E1'  },
-  { id:2,  name:'Equipo 2',  short:'E2'  },
-  { id:3,  name:'Equipo 3',  short:'E3'  },
-  { id:4,  name:'Equipo 4',  short:'E4'  },
-  { id:5,  name:'Equipo 5',  short:'E5'  },
-  { id:6,  name:'Equipo 6',  short:'E6'  },
-  { id:7,  name:'Equipo 7',  short:'E7'  },
-  { id:8,  name:'Equipo 8',  short:'E8'  },
-  { id:9,  name:'Equipo 9',  short:'E9'  },
-  { id:10, name:'Equipo 10', short:'E10' },
-  { id:11, name:'Equipo 11', short:'E11' },
-  { id:12, name:'Equipo 12', short:'E12' },
-].map((t, i) => ({ ...t, color: teamColors[i] }));
-
-const matches = [];
 
 const mainSponsors = [
   { name:'Aceites Rosan',         img:'logos/aceitesrosan-01.png'    },
@@ -85,120 +27,6 @@ const collabSponsors = [
   { name:'Ayto. Montoro',      img:'logos/organiza-03.png'  },
   { name:'Humildad',           img:'logos/humildad-01.png'  },
 ];
-
-/* ===========================
-   IMAGE CAROUSEL
-   =========================== */
-
-const SLIDE_DURATION = 5500; // ms per slide
-
-let currentSlide = 0;
-let slideTimer;
-let progressTimer;
-let progressStart;
-
-function buildCarousel() {
-  const track  = document.getElementById('cTrack');
-  const dotsEl = document.getElementById('cDots');
-  if (!track || !dotsEl) return;
-
-  /* Build slides */
-  track.innerHTML = newsItems.map(n => {
-    const bgStyle = n.img
-      ? `background-image: url('${n.img}'), ${n.gradient}; background-size: cover;`
-      : `background: ${n.gradient};`;
-    return `
-      <div class="c-slide" style="${bgStyle}">
-        <div class="c-slide-content">
-          <span class="c-tag ${n.tag}">${n.tagLabel}</span>
-          <h2 class="c-headline">${n.headline}</h2>
-          <p class="c-desc">${n.desc}</p>
-        </div>
-      </div>`;
-  }).join('');
-
-  /* Build dots */
-  dotsEl.innerHTML = newsItems.map((_, i) =>
-    `<button class="c-dot${i === 0 ? ' active' : ''}" data-i="${i}" aria-label="Slide ${i+1}"></button>`
-  ).join('');
-
-  dotsEl.querySelectorAll('.c-dot').forEach(d =>
-    d.addEventListener('click', () => goToSlide(Number(d.dataset.i)))
-  );
-
-  /* Arrow buttons */
-  document.getElementById('cPrev')?.addEventListener('click', () => goToSlide(currentSlide - 1));
-  document.getElementById('cNext')?.addEventListener('click', () => goToSlide(currentSlide + 1));
-
-  /* Touch/swipe */
-  let touchX = 0;
-  track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 50) goToSlide(dx < 0 ? currentSlide + 1 : currentSlide - 1);
-  });
-
-  startTimer();
-}
-
-function goToSlide(n) {
-  const total = newsItems.length;
-  currentSlide = ((n % total) + total) % total;
-
-  /* Move track */
-  document.getElementById('cTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
-
-  /* Animate content of new slide */
-  const slides = document.querySelectorAll('.c-slide');
-  slides.forEach((s, i) => {
-    const content = s.querySelector('.c-slide-content');
-    if (content) {
-      content.style.animation = 'none';
-      if (i === currentSlide) {
-        requestAnimationFrame(() => {
-          content.style.animation = '';
-        });
-      }
-    }
-  });
-
-  /* Update dots */
-  document.querySelectorAll('.c-dot').forEach((d, i) =>
-    d.classList.toggle('active', i === currentSlide)
-  );
-
-  resetTimer();
-}
-
-function startTimer() {
-  /* Progress bar */
-  const bar = document.getElementById('cProgressBar');
-  if (bar) {
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-    requestAnimationFrame(() => {
-      bar.style.transition = `width ${SLIDE_DURATION}ms linear`;
-      bar.style.width = '100%';
-    });
-  }
-  slideTimer = setTimeout(() => goToSlide(currentSlide + 1), SLIDE_DURATION);
-}
-
-function resetTimer() {
-  clearTimeout(slideTimer);
-  startTimer();
-}
-
-/* ===========================
-   TICKER
-   =========================== */
-
-function buildTicker() {
-  const el = document.getElementById('tickerContent');
-  if (!el) return;
-  const text = tickerItems.join('   ·   ');
-  el.textContent = text + '   ·   ' + text;
-}
 
 /* ===========================
    SPONSORS
@@ -245,18 +73,18 @@ function buildSponsors() {
 
 function calcStandings() {
   const stats = {};
-  teams.forEach(t => {
-    stats[t.id] = { id:t.id, pj:0, g:0, e:0, p:0, gf:0, gc:0 };
+  Object.values(groupTeams).flat().forEach(t => {
+    stats[t.slot] = { slot:t.slot, name:t.name, shield:t.shield, pj:0, g:0, e:0, p:0, gf:0, gc:0 };
   });
 
-  matches.filter(m => m.done).forEach(m => {
-    const h = stats[m.home], a = stats[m.away];
+  groupMatches.filter(m => m.status === 'done').forEach(m => {
+    const h = stats[m.homeSlot], a = stats[m.awaySlot];
     h.pj++; a.pj++;
-    h.gf += m.hs; h.gc += m.as;
-    a.gf += m.as; a.gc += m.hs;
-    if (m.hs > m.as)      { h.g++; a.p++; }
-    else if (m.hs < m.as) { a.g++; h.p++; }
-    else                  { h.e++; a.e++; }
+    h.gf += m.homeScore; h.gc += m.awayScore;
+    a.gf += m.awayScore; a.gc += m.homeScore;
+    if (m.homeScore > m.awayScore)      { h.g++; a.p++; }
+    else if (m.homeScore < m.awayScore) { a.g++; h.p++; }
+    else                                { h.e++; a.e++; }
   });
 
   return Object.values(stats)
@@ -272,7 +100,6 @@ function buildStandings() {
 
   tbody.innerHTML = rows.map((s, i) => {
     const pos  = i + 1;
-    const team = teams.find(t => t.id === s.id);
     const zone = pos === 1 ? 'zone-top' : pos <= 3 ? 'zone-top-2' : pos >= rows.length ? 'zone-bottom' : '';
     const dgCls = s.dg > 0 ? 'dg-pos' : s.dg < 0 ? 'dg-neg' : '';
     const rankCls = pos <= 3 ? `rank-${pos}` : '';
@@ -282,8 +109,8 @@ function buildStandings() {
         <td><span class="rank-badge">${pos}</span></td>
         <td class="col-team">
           <div class="team-cell">
-            <div class="team-badge" style="background:${team.color};color:#000">${team.short}</div>
-            <span>${team.name}</span>
+            <img class="team-badge" src="${s.shield}" alt="Escudo ${s.name}">
+            <span>${s.name}</span>
           </div>
         </td>
         <td>${s.pj}</td>
@@ -317,10 +144,8 @@ if (navToggle) {
    INIT
    =========================== */
 
-buildCarousel();
-buildTicker();
 buildSponsors();
-buildStandings();
+loadResultsFromSheet().then(buildStandings);
 
 
 

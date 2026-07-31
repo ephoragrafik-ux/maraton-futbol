@@ -1,76 +1,9 @@
 /* ===========================
    DATA
-   Cuando los equipos estén asignados a grupos, actualiza
-   los campos "home" y "away" con el nombre real del equipo.
-   Para marcar un partido como jugado: status:'done', homeScore: X, awayScore: Y
+   groupTeams, groupMatches, qfMatches, sfMatches y finalMatch
+   viven en matches-data.js (compartido con la portada) y se
+   actualizan automáticamente desde el Google Sheet de resultados.
    =========================== */
-
-const GROUP_COLORS = { 1:'#69f0ae', 2:'#82b1ff', 3:'#ffcc80', 4:'#f48fb1' };
-
-/* ---- GRUPO data (slot → equipo real cuando se asigne) ---- */
-const groupTeams = {
-  1: [
-    { slot:'A', name:'Equipo 1',  color:'#c62828' },
-    { slot:'B', name:'Equipo 2',  color:'#1565c0' },
-    { slot:'C', name:'Equipo 3',  color:'#2e7d32' },
-  ],
-  2: [
-    { slot:'D', name:'Equipo 4',  color:'#e65100' },
-    { slot:'E', name:'Equipo 5',  color:'#6a1b9a' },
-    { slot:'F', name:'Equipo 6',  color:'#006064' },
-  ],
-  3: [
-    { slot:'G', name:'Equipo 7',  color:'#f57f17' },
-    { slot:'H', name:'Equipo 8',  color:'#1a237e' },
-    { slot:'I', name:'Equipo 9',  color:'#880e4f' },
-  ],
-  4: [
-    { slot:'J', name:'Equipo 10', color:'#1b5e20' },
-    { slot:'K', name:'Equipo 11', color:'#212121' },
-    { slot:'L', name:'Equipo 12', color:'#4a148c' },
-  ],
-};
-
-/* ---- GROUP MATCHES (3 per group, round-robin) ---- */
-const groupMatches = [
-  // Grupo 1
-  { id:'g1m1', group:1, homeSlot:'A', awaySlot:'B', homeScore:null, awayScore:null, date:'31 Jul', time:'10:00', status:'pending' },
-  { id:'g1m2', group:1, homeSlot:'A', awaySlot:'C', homeScore:null, awayScore:null, date:'31 Jul', time:'11:30', status:'pending' },
-  { id:'g1m3', group:1, homeSlot:'B', awaySlot:'C', homeScore:null, awayScore:null, date:'31 Jul', time:'13:00', status:'pending' },
-  // Grupo 2
-  { id:'g2m1', group:2, homeSlot:'D', awaySlot:'E', homeScore:null, awayScore:null, date:'31 Jul', time:'10:45', status:'pending' },
-  { id:'g2m2', group:2, homeSlot:'D', awaySlot:'F', homeScore:null, awayScore:null, date:'31 Jul', time:'12:15', status:'pending' },
-  { id:'g2m3', group:2, homeSlot:'E', awaySlot:'F', homeScore:null, awayScore:null, date:'31 Jul', time:'13:45', status:'pending' },
-  // Grupo 3
-  { id:'g3m1', group:3, homeSlot:'G', awaySlot:'H', homeScore:null, awayScore:null, date:'31 Jul', time:'15:00', status:'pending' },
-  { id:'g3m2', group:3, homeSlot:'G', awaySlot:'I', homeScore:null, awayScore:null, date:'31 Jul', time:'16:30', status:'pending' },
-  { id:'g3m3', group:3, homeSlot:'H', awaySlot:'I', homeScore:null, awayScore:null, date:'31 Jul', time:'18:00', status:'pending' },
-  // Grupo 4
-  { id:'g4m1', group:4, homeSlot:'J', awaySlot:'K', homeScore:null, awayScore:null, date:'31 Jul', time:'15:45', status:'pending' },
-  { id:'g4m2', group:4, homeSlot:'J', awaySlot:'L', homeScore:null, awayScore:null, date:'31 Jul', time:'17:15', status:'pending' },
-  { id:'g4m3', group:4, homeSlot:'K', awaySlot:'L', homeScore:null, awayScore:null, date:'31 Jul', time:'18:45', status:'pending' },
-];
-
-/* ---- KNOCKOUT MATCHES ---- */
-const qfMatches = [
-  { id:'qf1', label:'Cuarto de Final 1', home:'1º Grupo 1', homeSub:'', away:'2º Grupo 2', awaySub:'', homeScore:null, awayScore:null, date:'1 Ago', time:'10:00', status:'pending' },
-  { id:'qf2', label:'Cuarto de Final 2', home:'1º Grupo 2', homeSub:'', away:'2º Grupo 1', awaySub:'', homeScore:null, awayScore:null, date:'1 Ago', time:'11:30', status:'pending' },
-  { id:'qf3', label:'Cuarto de Final 3', home:'1º Grupo 3', homeSub:'', away:'2º Grupo 4', awaySub:'', homeScore:null, awayScore:null, date:'1 Ago', time:'13:00', status:'pending' },
-  { id:'qf4', label:'Cuarto de Final 4', home:'1º Grupo 4', homeSub:'', away:'2º Grupo 3', awaySub:'', homeScore:null, awayScore:null, date:'1 Ago', time:'14:30', status:'pending' },
-];
-
-const sfMatches = [
-  { id:'sf1', label:'Semifinal 1', home:'Ganador CF1', homeSub:'', away:'Ganador CF3', awaySub:'', homeScore:null, awayScore:null, date:'2 Ago', time:'10:00', status:'pending' },
-  { id:'sf2', label:'Semifinal 2', home:'Ganador CF2', homeSub:'', away:'Ganador CF4', awaySub:'', homeScore:null, awayScore:null, date:'2 Ago', time:'12:00', status:'pending' },
-];
-
-const finalMatch = {
-  id:'f1', label:'Gran Final',
-  home:'Ganador SF1', homeSub:'',
-  away:'Ganador SF2', awaySub:'',
-  homeScore:null, awayScore:null,
-  date:'2 Ago', time:'18:00', status:'pending',
-};
 
 /* ===========================
    STANDINGS CALCULATOR
@@ -162,7 +95,7 @@ function renderGroups() {
           <span class="match-team">${homeName}</span>
           <div class="match-center">
             ${scoreHTML}
-            <span class="match-time-label">${m.date}</span>
+            <span class="match-time-label">${m.date} · ${m.time}</span>
           </div>
           <span class="match-team match-team-away">${awayName}</span>
         </div>`;
@@ -235,7 +168,7 @@ function koCard(match, isFinal = false) {
           ${match.awaySub ? `<span class="ko-team-sub">${match.awaySub}</span>` : ''}
         </div>
       </div>
-      <div class="ko-footer">📅 ${match.date}</div>
+      <div class="ko-footer">📅 ${match.date} · ⏰ ${match.time}</div>
       ${trophyBlock}
     </div>`;
 }
@@ -289,6 +222,8 @@ if (navToggle) {
 /* ===========================
    INIT
    =========================== */
-renderGroups();
-renderKnockout();
-initPhaseNav();
+loadResultsFromSheet().then(() => {
+  renderGroups();
+  renderKnockout();
+  initPhaseNav();
+});
